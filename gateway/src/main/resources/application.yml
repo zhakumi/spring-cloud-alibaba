@@ -1,0 +1,32 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+#      #      nacos 手动服务发现整合
+#      routes:
+#        - id: order_route
+#          uri: lb://order
+#          predicates:
+#            - Path=/order-rpc/**
+#          filters:
+#            - StripPrefix=1
+#        #      手动配置路由
+#        # 访问http://127.0.0.1:9000/order-serv/order/insert
+#        - id: order_route1
+#          uri: http://localhost:8082
+#          predicates:
+#            - Path=/order-serv/**
+#          filters:
+#            - StripPrefix=1
+
+
+

@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+logging:
+  level:
+    org.wangcan.example.order: DEBUG
+
+#配置 fegin log
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: FULL
+        #         链接时间
+        connectTimeOut: 3000
+        #        读取超时时间
+        readTimeOut: 3000
+        #        feign 拦截器
+        requestInterceptors[0]:
+          org.wangcan.example.order.feign.FeignInterceptor
