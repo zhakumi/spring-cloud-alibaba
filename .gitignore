@@ -1,0 +1,4 @@
+# Project exclude paths
+/gateway/target/
+/order/target/
+/stock/target/
