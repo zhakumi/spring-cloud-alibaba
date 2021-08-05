@@ -45,16 +45,10 @@ public class OrderController {
 
 
     @GetMapping("/header")
-    public String header(@RequestHeader("X-Request-red") String header,@RequestParam String color) {
-        System.out.print(color);
+    public String header(@RequestHeader("X-Request-red") String header,
+        @RequestParam String color) {
+        System.out.println(color);
+        log.info(color);
         return header;
-    }
-
-    public static void main(String[] args) {
-        BigDecimal subtract=new BigDecimal(10);
-        BigDecimal count = subtract.divide(new BigDecimal(3), 0, BigDecimal.ROUND_UP);
-//        int count = subtract.divide(new BigDecimal(3))
-//            .setScale(0, BigDecimal.ROUND_UP).intValue();
-        System.out.print(count);
     }
 }

@@ -20,9 +20,6 @@
     <boot.version>2.3.2.RELEASE</boot.version>
     <cloud.version>Hoxton.SR9</cloud.version>
     <alibaba.cloud.version>2.2.6.RELEASE</alibaba.cloud.version>
-<!--        <boot.version>2.4.2</boot.version>-->
-<!--        <cloud.version>2020.0.0</cloud.version>-->
-<!--        <alibaba.cloud.version>2021.1</alibaba.cloud.version>-->
   </properties>
 
   <dependencies>
@@ -59,6 +56,12 @@
         <version>${cloud.version}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.skywalking</groupId>
+        <artifactId>apm-toolkit-logback-1.x</artifactId>
+        <version>8.3.0</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
