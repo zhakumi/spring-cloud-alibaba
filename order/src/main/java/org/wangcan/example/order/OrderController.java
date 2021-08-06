@@ -46,8 +46,8 @@ public class OrderController {
 
     @GetMapping("/header")
     public String header(@RequestHeader("X-Request-red") String header,
-        @RequestParam String color) {
-        System.out.println(color);
+        @RequestParam String color) throws InterruptedException {
+        Thread.sleep(10000);
         log.info(color);
         return header;
     }
