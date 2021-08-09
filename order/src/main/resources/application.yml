@@ -5,6 +5,13 @@ spring:
     nacos:
       discovery:
         server-addr: 172.26.59.177:8848
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 127.0.0.1:8080
+        clientIp: 127.0.0.1
+      filter:
+        url-patterns: /**
 logging:
   level:
     org.wangcan.example.order: DEBUG
@@ -22,3 +29,8 @@ feign:
         #        feign 拦截器
         requestInterceptors[0]:
           org.wangcan.example.order.feign.FeignInterceptor
+management:
+  endpoint:
+    web:
+      exposure:
+        include: '*'

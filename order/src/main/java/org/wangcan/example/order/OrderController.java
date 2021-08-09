@@ -1,5 +1,7 @@
 package org.wangcan.example.order;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import java.math.BigDecimal;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -51,4 +53,36 @@ public class OrderController {
         log.info(color);
         return header;
     }
+
+    @GetMapping("/hello")
+    // 单个熔断 异常处理 已经改为全局异常处理
+//    @SentinelResource(value = "hello", blockHandler = "helloBlockException")
+    public String hello() throws InterruptedException {
+        Thread.sleep(10000);
+        log.info("hello");
+        return "hello";
+    }
+
+    /**
+     * 限流与阻塞处理
+     *
+     * @param ex
+     * @return
+     */
+    public String helloBlockException(BlockException ex) {
+        return "熔断";
+    }
+
+
+    @GetMapping("/add")
+    public String add() {
+        return "add";
+    }
+
+    @GetMapping("/get")
+    public String get() {
+        return "get";
+    }
+
+
 }
